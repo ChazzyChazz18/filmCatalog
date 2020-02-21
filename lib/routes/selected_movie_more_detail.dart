@@ -2,8 +2,8 @@ import 'package:film_catalog/funtional/ChazzToast.dart';
 import 'package:film_catalog/funtional/custom_video_player.dart';
 import 'package:film_catalog/models/actor.dart';
 import 'package:film_catalog/models/movie.dart';
+import 'package:film_catalog/routes/movie_full_trailers.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import 'movie_full_cast.dart';
 
@@ -220,7 +220,13 @@ class SelectedMovieMoreDetail extends StatelessWidget {
               onTap: () {
                 if (movie.videos.length == 0) {
                   ChazzToast.show("No videos to display");
-                } else {}
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MovieFullTrailers(movie)),
+                  );
+                }
               },
               child: Container(
                 padding: EdgeInsets.only(
