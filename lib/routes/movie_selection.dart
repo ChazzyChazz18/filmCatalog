@@ -171,7 +171,9 @@ class _MovieSelection extends State<MovieSelection> {
                   children: <Widget>[
                     imdbText,
                     Text(
-                      " " + DummyData.dummyMoviesList[viewPageIndex].rating.toString(),
+                      " " +
+                          DummyData.dummyMoviesList[viewPageIndex].rating
+                              .toString(),
                       style: TextStyle(
                         color: Color.fromRGBO(150, 150, 150, 1),
                         fontSize: 15.0,
@@ -269,13 +271,18 @@ class _MovieSelection extends State<MovieSelection> {
 
     //need to return a Scaffold to use TextInput...
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          appBar,
-          body,
-        ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: queryData.size.height,
+          child: Column(
+            children: <Widget>[
+              appBar,
+              body,
+              buttomNavigationBar,
+            ],
+          ),
+        ),
       ),
-      bottomNavigationBar: buttomNavigationBar,
     );
   }
 }
