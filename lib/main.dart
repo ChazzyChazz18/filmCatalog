@@ -32,25 +32,34 @@ class MyApp extends StatelessWidget {
           showThumbnail: true,
       );*/
 
-    return MaterialApp(
-      title: 'Movie App Test',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MovieSelection(),
-      //VideoPlayerScreen(),
-      /*Container(
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: MaterialApp(
+        title: 'Movie App Test',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MovieSelection(),
+        //VideoPlayerScreen(),
+        /*Container(
           child: Material(
             child: flutubePlayer,
           ),
         ),*/
-      /*Container(
+        /*Container(
           width: 200,
           height: 200,
           child: Material(
             child: youtubePlayer,
           ),
         ),*/
+      ),
     );
   }
 }
