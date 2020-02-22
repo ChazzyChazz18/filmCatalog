@@ -66,7 +66,7 @@ class _MovieSelection extends State<MovieSelection> {
             color: Colors.grey,
           ),
           border: InputBorder.none,
-        ),
+        ), itemSorter: null,
       ),
       /*TextField(
         decoration: InputDecoration(
