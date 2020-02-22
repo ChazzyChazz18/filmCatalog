@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:film_catalog/models/movie.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:film_catalog/routes/selected_movie_detail.dart';
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 
 class MovieSelection extends StatefulWidget {
   @override
@@ -15,6 +16,10 @@ class _MovieSelection extends State<MovieSelection> {
   int viewPageIndex = 0;
 
   Color textColor = Color.fromRGBO(150, 150, 150, 1);
+
+  GlobalKey<AutoCompleteTextFieldState<Movie>> key = new GlobalKey();
+
+  Movie selected;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +36,29 @@ class _MovieSelection extends State<MovieSelection> {
         left: 20.0,
         right: 20.0,
       ),
-      padding: EdgeInsets.only(
-        left: 20.0,
-      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(32)),
       ),
-      child: TextField(
+      child: AutoCompleteTextField<Movie>(
+        key: key,
+        suggestions: DummyData.dummyMoviesList,
+        itemFilter: (item, query) {
+          return item.name.toLowerCase().startsWith(
+                query.toLowerCase(),
+              );
+        },
+        itemBuilder: (context, suggestion) => new Container(
+          child: new ListTile(
+            title: new Text(suggestion.name),
+          ),
+        ),
+        itemSubmitted: (item) => setState(() => selected = item),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(
+            top: 10.0,
+            left: 20.0,
+          ),
           hintStyle: TextStyle(fontSize: 17, color: Colors.grey),
           hintText: 'Search',
           suffixIcon: Icon(
@@ -49,6 +68,17 @@ class _MovieSelection extends State<MovieSelection> {
           border: InputBorder.none,
         ),
       ),
+      /*TextField(
+        decoration: InputDecoration(
+          hintStyle: TextStyle(fontSize: 17, color: Colors.grey),
+          hintText: 'Search',
+          suffixIcon: Icon(
+            Icons.search,
+            color: Colors.grey,
+          ),
+          border: InputBorder.none,
+        ),
+      ),*/
     );
 
     final appBar = Container(
@@ -275,11 +305,7 @@ class _MovieSelection extends State<MovieSelection> {
         child: Container(
           height: queryData.size.height,
           child: Column(
-            children: <Widget>[
-              appBar,
-              body,
-              buttomNavigationBar
-            ],
+            children: <Widget>[appBar, body, buttomNavigationBar],
           ),
         ),
       ),
