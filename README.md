@@ -16,10 +16,12 @@ PD: the design used in this project is not of my propierty , credits to the real
 
 ### Billboard screen
 <img src="https://i.ibb.co/hCZdgXY/Screenshot-20200221-194848.jpg" width="256">
+
 > In this screen we can get al the current movies on theathers billboards
 
 ### Movie details screen
 <img src="https://i.ibb.co/fvWfFks/Screenshot-20200221-194917.jpg" width="256">
+
 > In this screen we can see on detail more information about the movie selected
 
 ---
