@@ -278,7 +278,7 @@ class _MovieSelection extends State<MovieSelection> {
             children: <Widget>[
               appBar,
               body,
-              buttomNavigationBar,
+              buttomNavigationBar
             ],
           ),
         ),
