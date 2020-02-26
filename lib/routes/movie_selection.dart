@@ -11,7 +11,6 @@ class MovieSelection extends StatefulWidget {
 }
 
 class _MovieSelection extends State<MovieSelection> {
-  //PageController _pageController;
   int indexTap = 0;
   int viewPageIndex = 0;
 
@@ -25,8 +24,6 @@ class _MovieSelection extends State<MovieSelection> {
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-
-    //_pageController = PageController(initialPage: 0, viewportFraction: 0.9);
 
     //Initialized Widgets
     final customSearch = Container(
@@ -68,17 +65,6 @@ class _MovieSelection extends State<MovieSelection> {
           border: InputBorder.none,
         ), itemSorter: null,
       ),
-      /*TextField(
-        decoration: InputDecoration(
-          hintStyle: TextStyle(fontSize: 17, color: Colors.grey),
-          hintText: 'Search',
-          suffixIcon: Icon(
-            Icons.search,
-            color: Colors.grey,
-          ),
-          border: InputBorder.none,
-        ),
-      ),*/
     );
 
     final appBar = Container(

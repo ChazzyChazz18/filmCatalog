@@ -16,22 +16,6 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    /*final flutubePlayer = FluTube(
-          'https://www.youtube.com/watch?v=SEUtpeQ4v88',
-          aspectRatio: 16 / 9,
-          autoPlay: true,
-          looping: true,
-          onVideoStart: () {},
-          onVideoEnd: () {},
-      );*/
-
-    /*final youtubePlayer = YoutubePlayer(
-          source: "https://www.youtube.com/watch?v=pU8-7BX9uxs&t=3s",
-          quality: YoutubeQuality.HD,
-          aspectRatio: 1/1,
-          showThumbnail: true,
-      );*/
-
     return GestureDetector(
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
@@ -46,19 +30,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: MovieSelection(),
-        //VideoPlayerScreen(),
-        /*Container(
-          child: Material(
-            child: flutubePlayer,
-          ),
-        ),*/
-        /*Container(
-          width: 200,
-          height: 200,
-          child: Material(
-            child: youtubePlayer,
-          ),
-        ),*/
       ),
     );
   }
